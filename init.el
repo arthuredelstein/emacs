@@ -12,6 +12,8 @@
 ;(add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
 ;; Don't add newlines to the end of files
 (setq require-final-newline nil)
+;; paren mode
+(show-paren-mode 1)
 ;; Set HTML default indentation
 (add-hook 'html-mode-hook
           (lambda ()
@@ -27,7 +29,6 @@
 (recentf-mode 1)
 (setq recentf-max-menu-items 30)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
-
 
 (require 'package)
 (add-to-list 'package-archives
@@ -46,3 +47,15 @@
         (css-mode "<style[^>]*>" "</style>")))
 (setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
 (multi-web-global-mode 1)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values (quote ((js-indent-level . 2)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
