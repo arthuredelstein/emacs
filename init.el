@@ -1,4 +1,6 @@
 ;; use packages
+(setq package-list '(clojure-mode cider multi-web-mode))
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://stable.melpa.org/packages/") t)
@@ -7,9 +9,14 @@
   (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
-;; install some packages we like
-(package-install 'clojure-mode)
-(package-install 'cider)
+; fetch the list of packages available 
+(unless package-archive-contents
+  (package-refresh-contents))
+
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
 
 ;; Always use spaces instead of tabs.
 (setq-default indent-tabs-mode nil)
