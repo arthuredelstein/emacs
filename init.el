@@ -1,3 +1,16 @@
+;; use packages
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://stable.melpa.org/packages/") t)
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
+(package-initialize)
+
+;; install some packages we like
+(package-install 'clojure-mode)
+(package-install 'cider)
+
 ;; Always use spaces instead of tabs.
 (setq-default indent-tabs-mode nil)
 ;; Use 2 spaces per tab in JavaScript.
@@ -30,13 +43,6 @@
 (setq recentf-max-menu-items 30)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://stable.melpa.org/packages/") t)
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
-(package-initialize)
 
 ;; Better HTML handling
 (require 'multi-web-mode)
