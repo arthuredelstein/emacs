@@ -63,6 +63,9 @@
 (add-to-list 'auto-mode-alist '("\\.wml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.wmi\\'" . web-mode))
 
+;; Handle Mozilla .jsm files as js
+(add-to-list 'auto-mode-alist '("\\.jsm\\'" . js-mode))
+
 ;; use 2 spaces per tab in web-mode
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
