@@ -9,7 +9,7 @@
   (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
-; fetch the list of packages available 
+; fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
@@ -50,6 +50,7 @@
 (setq recentf-max-menu-items 30)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
+;; get correct go-mode indents
 (add-hook 'go-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil)
@@ -67,6 +68,18 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.wml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.wmi\\'" . web-mode))
+
+;; Handle Mozilla .jsm files as js
+(add-to-list 'auto-mode-alist '("\\.jsm\\'" . js-mode))
+
+;; use 2 spaces per tab in web-mode
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+)
+(add-hook 'web-mode-hook 'my-web-mode-hook)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
