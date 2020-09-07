@@ -1,5 +1,5 @@
 ;; use packages
-(setq package-list '(clojure-mode cider web-mode))
+(setq package-list '(clojure-mode cider web-mode go-mode))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -50,6 +50,10 @@
 (setq recentf-max-menu-items 30)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
+(add-hook 'go-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (setq tab-width 2)))
 
 ;; Better HTML handling
 (require 'web-mode)
