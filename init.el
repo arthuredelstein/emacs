@@ -52,8 +52,8 @@
 ;; get correct go-mode indents
 (add-hook 'go-mode-hook
           (lambda ()
-            (setq indent-tabs-mode nil)
-            (setq tab-width 2)))
+            (setq indent-tabs-mode t)
+            (setq tab-width 8)))
 
 ;; Better HTML handling
 (require 'web-mode)
